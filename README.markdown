@@ -81,6 +81,7 @@ playbook `examples/deb_repo_install_playbook.yml` or from a local/remote Deb pat
 ```Shellsession
 sudo ansible-playbook -i "localhost," -c local examples/<playbook>
 ```
+
 You can also use ansible-opendaylight using [Vagrant base box examples of Ansible ODL deployments][8].
 
 ## Example Playbook
@@ -109,9 +110,10 @@ To override default settings, pass variables to the `opendaylight` role.
 
 Results in:
 
-    opendaylight-user@root>feature:list | grep odl-netvirt-openstack
-    odl-netvirt-openstack | <odl-release> | x | odl-netvirt-<odl-release> | OpenDaylight :: NetVirt :: OpenStack
-
+```
+opendaylight-user@root>feature:list | grep odl-netvirt-openstack
+odl-netvirt-openstack | <odl-release> | x | odl-netvirt-<odl-release> | OpenDaylight :: NetVirt :: OpenStack
+```
 
 ## License
 
@@ -127,12 +129,18 @@ the main developer of this role.
 See [CONTRIBUTING.md][4] for details about how to contribute to the
 OpenDaylight Ansible role.
 
-
 [1]: http://www.opendaylight.org/project/technical-overview "OpenDaylight main technical overview"
+
 [2]: https://wiki.opendaylight.org/view/User:Dfarrell07 "Maintainer information"
+
 [3]: https://wiki.opendaylight.org/view/Integration/Packaging "OpenDaylight Integration/Packaging project wiki"
+
 [4]: https://github.com/dfarrell07/ansible-opendaylight/blob/master/CONTRIBUTING.md "OpenDaylight Ansible role contributing docs"
+
 [5]: https://galaxy.ansible.com/list#/roles/3948 "OpenDaylight Ansible role on Ansible Galaxy"
+
 [6]: https://travis-ci.org/dfarrell07/ansible-opendaylight "OpenDaylight Ansible role Travis CI"
+
 [7]: https://travis-ci.org/dfarrell07/ansible-opendaylight.svg "Travis CI status image"
+
 [8]: https://github.com/dfarrell07/vagrant-opendaylight#ansible-deployments "Ansible Vagrant deployment"

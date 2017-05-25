@@ -22,7 +22,6 @@ max_line_length = 100
 
 [markdown]
 bears = MarkdownBear
-enabled = False
 files = **.markdown, **.md
 default_actions = MarkdownBear: ApplyPatchAction
 

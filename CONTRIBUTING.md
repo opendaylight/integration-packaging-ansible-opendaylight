@@ -3,11 +3,12 @@
 We work to make contributing easy. Please let us know if you spot something we can do better.
 
 #### Table of Contents
+
 1. [Overview](#overview)
-1. [Communication](#communication)
-    * [Issues](#issues)
-    * [IRC channel](#irc-channel)
-1. [Patches](#patches)
+2. [Communication](#communication)
+   - [Issues](#issues)
+   - [IRC channel](#irc-channel)
+3. [Patches](#patches)
 
 ## Overview
 
@@ -37,7 +38,7 @@ The `info:progress` labels may not always be up-to-date, but will be used when a
 
 Issues can be referenced and manipulated from git commit messages. Just referencing the issue's number (`#42`) will link the commit and issue. Issues can also be closed from commit messages with `closes #42` (and [a variety of other key words][6]).
 
-###IRC channel
+### IRC channel
 
 Feel free to join us at **#opendaylight-integration** on `chat.freenode.net`. You can also use web client for Freenode to join us at [webchat][10].
 
@@ -46,27 +47,36 @@ Feel free to join us at **#opendaylight-integration** on `chat.freenode.net`. Yo
 Please use [Pull Requests][2] to submit patches.
 
 Basics of a pull request:
-* Use the GitHub web UI to fork our repo.
-* Clone your fork to your local system.
-* Make your changes.
-* Commit your changes, using a [good commit message][8] and referencing any applicable issues.
-* Push your commit.
-* Submit a pull request against the project, again using GitHub's web UI.
-* We'll give feedback and get your changed merged ASAP.
-* You contributed! [Thank you][9]!
+
+- Use the GitHub web UI to fork our repo.
+- Clone your fork to your local system.
+- Make your changes.
+- Commit your changes, using a [good commit message][8] and referencing any applicable issues.
+- Push your commit.
+- Submit a pull request against the project, again using GitHub's web UI.
+- We'll give feedback and get your changed merged ASAP.
+- You contributed! [Thank you][9]!
 
 Other tips for submitting excellent pull requests:
-* If you'd like to make more than one logically distinct change, please submit them as different pull requests (if they don't depend on each other) or different commits in the same PR (if they do).
-* If your PR contains a number of commits that provide one logical change, please squash them using `git rebase`.
-* If applicable, please provide documentation updates to reflect your changes.
 
+- If you'd like to make more than one logically distinct change, please submit them as different pull requests (if they don't depend on each other) or different commits in the same PR (if they do).
+- If your PR contains a number of commits that provide one logical change, please squash them using `git rebase`.
+- If applicable, please provide documentation updates to reflect your changes.
 
 [1]: https://github.com/dfarrell07/ansible-opendaylight/issues
+
 [2]: https://github.com/dfarrell07/ansible-opendaylight/pulls
+
 [3]: https://github.com/dfarrell07/ansible-opendaylight/labels/good-for-beginners
+
 [4]: https://github.com/dfarrell07/ansible-opendaylight/labels/prio%3Ahigh
+
 [5]: https://github.com/dfarrell07/ansible-opendaylight/labels/prio%3Anormal
+
 [6]: https://help.github.com/articles/closing-issues-via-commit-messages/
+
 [8]: http://chris.beams.io/posts/git-commit/
+
 [9]: http://cdn3.volusion.com/74gtv.tjme9/v/vspfiles/photos/Delicious%20Dozen-1.jpg
+
 [10]: http://webchat.freenode.net/?channels=opendaylight-integration
