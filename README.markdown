@@ -51,7 +51,7 @@ shouldn't normally need to do so.
 ### REST API Port
 
 To change the port on which OpenDaylight's northbound listens for REST API
-calls, use the `odl_rest_port` variable. This was added because OpenStack's
+calls, use the `nb_rest_port` variable. This was added because OpenStack's
 Swift project uses a conflicting port.
 
 The Ansible role will handle opening this port in FirewallD if it's active.
