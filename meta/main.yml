@@ -11,8 +11,8 @@ galaxy_info:
     - 7
   - name: Fedora
     versions:
-    - 20
-    - 21
+    - 25
+    - 26
   categories:
   - cloud
   - clustering
