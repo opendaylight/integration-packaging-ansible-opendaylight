@@ -1,0 +1,6 @@
+---
+# file: site.yml
+- include: infrastructure.yml
+
+# vim: set et ai sw=2 ts=2 :
+

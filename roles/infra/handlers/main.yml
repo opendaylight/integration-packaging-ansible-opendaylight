@@ -1,0 +1,10 @@
+---
+- include: parse_apparmor_profile.yml
+
+- name: restart docker
+  tags: docker
+  systemd:
+    state: restarted
+    daemon_reload: yes
+    name: docker
+  listen: restart docker

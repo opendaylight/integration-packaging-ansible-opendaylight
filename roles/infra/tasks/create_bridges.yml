@@ -1,0 +1,21 @@
+---
+- name: Setup mgmt bridge
+  vars:
+    interface: "{{ management_interface }}"
+    bridge: "{{ management_bridge }}"
+    ip_addr_1: "{{ mgmt_lab_ip }}"
+    ip_addr_2: "{{ mgmt_ip }}"
+  include: setup_bridge.yml
+  when: "'{{ management_bridge }}' not in ansible_interfaces"
+
+- name: Setup data bridge
+  vars:
+    interface: "{{ data_interface }}"
+    bridge: "{{ data_bridge }}"
+    ip_addr_1: "{{ data_lab_ip }}"
+    ip_addr_2: "{{ data_ip }}"
+  include: setup_bridge.yml
+  when: "'{{ data_bridge }}' not in ansible_interfaces"
+
+# vim: set et ts=2 sw=2 ai ft=yaml :
+
