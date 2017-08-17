@@ -1,6 +1,6 @@
 - name: Build Karaf feature list
   set_fact:
-    features: "{{ default_features + extra_features }}"
+    features: "{{ default_features + extra_features + cluster_features if cluster else default_features + extra_features }}"
 
 - name: Configure ODL Karaf features
   lineinfile:

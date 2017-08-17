@@ -31,9 +31,26 @@ default_features:
 # CLIs is an anti-goal for CI/CD and automated deployments generally.
 extra_features: []
 
+# Deploying Opendaylight in a clustering mode is a feature
+# which is only supported when the current role is consumed
+# by the OSA project.
+# https://github.com/openstack/openstack-ansible
+
+# Enable or disable deploying OpenDaylight as a cluster.
+cluster: false
+
+# If OpenDaylight is deployed as a cluster, these features are required.
+cluster_features:
+  - 'odl-mdsal-clustering'
+  - 'odl-jolokia'
+
 # Specifies the port for the ODL northbound REST interface to listen on.
 # This was added because OpenStack's Swift project uses a conflicting port.
 nb_rest_port: 8080
+
+# Specifies the port for the ODL clustering which is being used by Akka
+# remoting for east-west communication.
+akka_remoting_port: 2550
 
 # Method to install ODL
 # Valid options:
