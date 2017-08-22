@@ -4,4 +4,4 @@
   roles:
     - role: opendaylight
       # Install latest service release of ODL Beryllium RPM from the CBS repos
-      rpm_repo_url: "https://git.opendaylight.org/gerrit/gitweb?p=integration/packaging.git;a=blob_plain;f=rpm/example_repo_configs/opendaylight-4-release.repo"
+      rpm_repo_url: "https://git.opendaylight.org/gerrit/gitweb?p=integration/packaging.git;a=blob_plain;f=packages/rpm/example_repo_configs/opendaylight-4-release.repo"

@@ -4,4 +4,4 @@
   roles:
     - role: opendaylight
       # Install the latest ODL Carbon RPM from the CBS repos
-      rpm_repo_url: "https://git.opendaylight.org/gerrit/gitweb?p=integration/packaging.git;a=blob_plain;f=rpm/example_repo_configs/opendaylight-6-testing.repo"
+      rpm_repo_url: "https://git.opendaylight.org/gerrit/gitweb?p=integration/packaging.git;a=blob_plain;f=packages/rpm/example_repo_configs/opendaylight-6-testing.repo"
