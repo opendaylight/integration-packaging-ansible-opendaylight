@@ -3,4 +3,6 @@
 - include: configure_karaf_features.yml
 - include: configure_nb_rest_port.yml
 - include: open_nb_rest_port.yml
+- include: configure_genius_tunnels.yml
+  when: "'odl-netvirt-sfc' in features"
 - include: start_odl.yml
