@@ -1,0 +1,8 @@
+---
+- include: copy_apparmor_profile.yml
+- include: create_bridges.yml
+- include: install_packages.yml
+- include: setup_docker_daemon.yml
+
+# vim: set et ts=2 sw=2 ai ft=yaml :
+
