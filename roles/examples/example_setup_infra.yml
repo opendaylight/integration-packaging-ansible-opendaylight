@@ -1,5 +1,0 @@
----
-- hosts: compute-node-hosts
-  become: yes
-  roles:
-    - role: infra

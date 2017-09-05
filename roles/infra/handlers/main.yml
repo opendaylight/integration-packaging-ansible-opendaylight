@@ -1,5 +1,10 @@
 ---
-- include: parse_apparmor_profile.yml
+- name: Parse apparmor profile
+  tags:
+    - files
+    - docker
+  shell: apparmor_parser -r -W "{{ profile_path }}"
+  listen: parse apparmor profile
 
 - name: restart docker
   tags: docker
