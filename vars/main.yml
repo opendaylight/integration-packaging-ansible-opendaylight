@@ -66,7 +66,7 @@ rpm_repo_url: "https://git.opendaylight.org/gerrit/gitweb?p=integration/packagin
 
 # URL of the deb repository to use when installing ODL from a repo
 # NB: This will only take effect when `install_method` is "deb_repo"
-deb_repo_url: "ppa:odl-team/carbon"
+deb_repo_url: "ppa:odl-team/nitrogen"
 
 # This will be passed as the `name` param to the Ansible `yum` module.
 # `name` param docs: "You can also pass a url or a local path to a rpm file."
