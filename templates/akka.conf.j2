@@ -18,11 +18,11 @@ odl-cluster-data {
       artery {
         enabled = off
         canonical.hostname = "{{vars.host_ip}}"
-        canonical.port = { akka_remoting_port }}
+        canonical.port = {{ akka_remoting_port }}
       }
       netty.tcp {
         hostname = "{{vars.host_ip}}"
-        port = { akka_remoting_port }}
+        port = {{ akka_remoting_port }}
       }
       # when under load we might trip a false positive on the failure detector
       # transport-failure-detector {
