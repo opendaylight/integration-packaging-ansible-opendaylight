@@ -9,7 +9,7 @@
       {% set _ = vars.update({'member_index': '"' + "member-" + loop.index|string + '"'}) %}
    {% endif %}
    {% set ip_address =  hostvars[host]['container_address']|string %}
-   {% set _ = odl_cluster_list.append('"' + "akka.tcp://opendaylight-cluster-data@" + ip_address + ":" + {{ akka_remoting_port }} + '"')  %}
+   {% set _ = odl_cluster_list.append('"' + "akka.tcp://opendaylight-cluster-data@" + ip_address + ":" + akka_remoting_port|string + '"')  %}
 {%- endfor %}
 
 odl-cluster-data {
