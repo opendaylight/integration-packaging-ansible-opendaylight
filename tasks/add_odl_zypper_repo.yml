@@ -1,0 +1,6 @@
+- name: Add ODL zypper repo
+  zypper_repository:
+    repo: "{{ suse_rpm_repo_url }}"
+    name: opendaylight
+    auto_import_keys: yes
+    runrefresh: yes

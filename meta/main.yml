@@ -13,6 +13,9 @@ galaxy_info:
     versions:
     - 25
     - 26
+  - name: OpenSUSE
+    versions:
+    - 42
   categories:
   - cloud
   - clustering

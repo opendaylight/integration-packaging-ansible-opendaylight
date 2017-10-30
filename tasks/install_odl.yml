@@ -20,11 +20,13 @@
 # Install ODL using Yum repo config
 - include: install_odl_via_rpm_repo.yml
   when:
-    - ansible_os_family == "RedHat"
+    - (ansible_os_family == "RedHat") or
+      (ansible_os_family == "Suse")
     - install_method == "rpm_repo"
 
 # Install ODL using rpm URL or a local path to a rpm file
 - include: install_odl_via_rpm_path.yml
   when:
-    - ansible_os_family == "RedHat"
+    - (ansible_os_family == "RedHat") or
+      (ansible_os_family == "Suse")
     - install_method == "rpm_path"
