@@ -10,3 +10,6 @@
 - include: configure_genius_tunnels.yml
   when: "'odl-netvirt-sfc' in features"
 - include: start_odl.yml
+- include: configure_quagga.yml
+  when:
+    - quagga

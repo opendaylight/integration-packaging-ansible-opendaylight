@@ -85,3 +85,43 @@ suse_rpm_path: "https://download.opensuse.org/repositories/Virtualization:/NFV/o
 #   See: http://docs.ansible.com/ansible/apt_module.html
 # This is used when `install_method` is "deb_path"
 deb_path: ""
+
+# Distro on which quagga packages to be installed
+quagga_install_method: "{{ (ansible_os_family=='Debian') | ternary('deb_repo', 'rpm_repo') }}"
+
+# Quagga deb packages repository location
+quagga_deb_repo: http://artifacts.opnfv.org/sdnvpn/quagga4/quagga-ubuntu-updated.tar.gz
+
+# Quagga rpm packages repository location
+quagga_rpm_repo: http://artifacts.opnfv.org/sdnvpn/quagga4/quagga.tar.gz
+
+# Find out correct quagga package url based on the
+# quagga install method
+quagga_package_url: "{% if quagga_install_method == 'deb_repo' %}{{ quagga_deb_repo }}{% else %}{{ quagga_rpm_repo }}{% endif %}"
+
+# Temporary location on which quagga packages to be
+# retrieved for the installation
+temp_quagga_dir: /tmp/quagga
+
+# The neutron server node on which OSA configures ODL
+# as the BGP speaker
+odl_bgp_speaker_host: "{{ inventory_hostname }}"
+
+# The neutron server node ip address (br-admin) on which OSA configures ODL
+# as the BGP speaker
+odl_bgp_speaker_host_ip_address: "{{ hostvars[inventory_hostname]['ansible_default_ipv4']['address'] }}"
+
+# BGP Config Server Port at quagga side for ODL to establish
+# thrift connection.
+bgp_config_server_port: 7644
+
+# Quagga packages to be installed
+quagga_dependencies:
+  - thrift
+  - zmq
+  - c-capnproto
+  - quagga
+  - zrpc
+
+# Configure OpenDaylight with Quagga
+quagga: false

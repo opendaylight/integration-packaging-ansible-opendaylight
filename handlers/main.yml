@@ -2,3 +2,6 @@
 - include: stop_odl.yml
 - include: cleanup_karaf.yml
 - include: start_odl.yml
+- include: configure_odl_bgp.yml
+  when:
+    - quagga
