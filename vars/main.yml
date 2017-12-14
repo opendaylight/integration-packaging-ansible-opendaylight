@@ -62,7 +62,7 @@ install_method: "rpm_repo"
 
 # URL of the .repo config to use when installing ODL from a repo
 # NB: This will only take effect when `install_method` is "rpm_repo"
-rpm_repo_url: "https://git.opendaylight.org/gerrit/gitweb?p=integration/packaging.git;a=blob_plain;f=packages/rpm/example_repo_configs/opendaylight-8-testing.repo"
+rpm_repo_url: "https://git.opendaylight.org/gerrit/gitweb?p=integration/packaging.git;a=blob_plain;f=packages/rpm/example_repo_configs/opendaylight-8-devel.repo"
 suse_rpm_repo_url: "https://download.opensuse.org/repositories/home:/mosquetero:/branches:/Virtualization:/NFV/openSUSE_Leap_42.3/"
 
 # URL of the deb repository to use when installing ODL from a repo
