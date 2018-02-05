@@ -63,7 +63,7 @@ install_method: "rpm_repo"
 # URL of the .repo config to use when installing ODL from a repo
 # NB: This will only take effect when `install_method` is "rpm_repo"
 rpm_repo_url: "https://git.opendaylight.org/gerrit/gitweb?p=integration/packaging.git;a=blob_plain;f=packages/rpm/example_repo_configs/opendaylight-8-devel.repo"
-suse_rpm_repo_url: "https://download.opensuse.org/repositories/home:/mosquetero:/branches:/Virtualization:/NFV/openSUSE_Leap_42.3/"
+suse_rpm_repo_url: "https://download.opensuse.org/repositories/Virtualization:/NFV/openSUSE_Leap_42.3/"
 
 # URL of the deb repository to use when installing ODL from a repo
 # NB: This will only take effect when `install_method` is "deb_repo"
@@ -77,7 +77,7 @@ deb_repo_url: "ppa:odl-team/nitrogen"
 # Default to the release RPM hosted on the CentOS Community Build System
 rpm_path: "http://cbs.centos.org/repos/nfv7-opendaylight-71-release/x86_64/os/Packages/opendaylight-7.1.0-1.el7.noarch.rpm"
 # Default to the Nitrogen RPM hosted on the openSUSE OBS
-suse_rpm_path: "https://download.opensuse.org/repositories/home:/mosquetero:/branches:/Virtualization:/NFV/openSUSE_Leap_42.3/noarch/opendaylight-7.0.0-11.1.noarch.rpm"
+suse_rpm_path: "https://download.opensuse.org/repositories/Virtualization:/NFV/openSUSE_Leap_42.3/noarch/opendaylight-7.1.0-1.1.noarch.rpm"
 
 # This will be passed as the `deb` param to the Ansible `apt` module.
 # `deb` param docs: "Path to a .deb package on the remote machine. If :// in the path,
