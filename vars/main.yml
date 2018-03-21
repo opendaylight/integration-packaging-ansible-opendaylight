@@ -62,12 +62,12 @@ install_method: "rpm_repo"
 
 # URL of the .repo config to use when installing ODL from a repo
 # NB: This will only take effect when `install_method` is "rpm_repo"
-rpm_repo_url: "https://git.opendaylight.org/gerrit/gitweb?p=integration/packaging.git;a=blob_plain;f=packages/rpm/example_repo_configs/opendaylight-8-devel.repo"
-suse_rpm_repo_url: "https://download.opensuse.org/repositories/Virtualization:/NFV/openSUSE_Leap_42.3/"
+rpm_repo_url: "{{ odl_repo_url | default('https://git.opendaylight.org/gerrit/gitweb?p=integration/packaging.git;a=blob_plain;f=packages/rpm/example_repo_configs/opendaylight-8-devel.repo') }}"
+suse_rpm_repo_url: "{{ odl_repo_url | default('https://download.opensuse.org/repositories/Virtualization:/NFV/openSUSE_Leap_42.3/') }}"
 
 # URL of the deb repository to use when installing ODL from a repo
 # NB: This will only take effect when `install_method` is "deb_repo"
-deb_repo_url: "ppa:odl-team/nitrogen"
+deb_repo_url: "{{ odl_repo_url | default('ppa:odl-team/nitrogen') }}"
 
 # This will be passed as the `name` param to the Ansible `yum` module.
 # `name` param docs: "You can also pass a url or a local path to a rpm file."
