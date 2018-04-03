@@ -67,7 +67,7 @@ suse_rpm_repo_url: "{{ odl_repo_url | default('https://download.opensuse.org/rep
 
 # URL of the deb repository to use when installing ODL from a repo
 # NB: This will only take effect when `install_method` is "deb_repo"
-deb_repo_url: "{{ odl_repo_url | default('ppa:odl-team/nitrogen') }}"
+deb_repo_url: "{{ odl_repo_url | default('ppa:odl-team/oxygen') }}"
 
 # This will be passed as the `name` param to the Ansible `yum` module.
 # `name` param docs: "You can also pass a url or a local path to a rpm file."
