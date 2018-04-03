@@ -1,5 +1,5 @@
 <itm-config xmlns="urn:opendaylight:genius:itm:config">
-    <def-tz-enabled>false</def-tz-enabled>
+    <def-tz-enabled>{% if odl_version is defined and odl_version == 'nitrogen'%}false{% else %}true{% endif %}</def-tz-enabled>
     <def-tz-tunnel-type>vxlan</def-tz-tunnel-type>
     <tunnel-aggregation>
         <tunnel-type>vxlan</tunnel-type>
