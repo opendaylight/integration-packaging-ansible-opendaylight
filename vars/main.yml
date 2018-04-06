@@ -46,7 +46,7 @@ cluster_features:
 
 # Specifies the port for the ODL northbound REST interface to listen on.
 # This was added because OpenStack's Swift project uses a conflicting port.
-nb_rest_port: 8080
+nb_rest_port: 8181
 
 # Specifies the port for the ODL clustering which is being used by Akka
 # remoting for east-west communication.
