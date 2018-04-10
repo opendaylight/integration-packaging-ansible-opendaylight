@@ -5,3 +5,4 @@
   apt:
     name: opendaylight
     state: present
+    allow_unauthenticated: yes
