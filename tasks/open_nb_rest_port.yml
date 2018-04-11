@@ -1,5 +1,5 @@
 ---
-- include: in_container.yml
+- include_tasks: in_container.yml
 
 - name: Check if FirewallD service is running
   command: systemctl is-active firewalld

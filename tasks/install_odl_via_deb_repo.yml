@@ -1,5 +1,5 @@
 ---
-- include: add_odl_deb_repo.yml
+- include_tasks: add_odl_deb_repo.yml
 
 - name: Install ODL via Deb repo
   apt:

@@ -1,8 +1,8 @@
 ---
-- include: add_odl_yum_repo.yml
+- include_tasks: add_odl_yum_repo.yml
   when: ansible_os_family == "RedHat"
 
-- include: add_odl_zypper_repo.yml
+- include_tasks: add_odl_zypper_repo.yml
   when: ansible_os_family == "Suse"
 
 - name: Install ODL via RPM repo

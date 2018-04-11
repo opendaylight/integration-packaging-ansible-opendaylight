@@ -1,15 +1,15 @@
 ---
-- include: install_odl.yml
-- include: configure_cluster.yml
+- include_tasks: install_odl.yml
+- include_tasks: configure_cluster.yml
   when:
    - cluster
 
-- include: configure_karaf_features.yml
-- include: configure_nb_rest_port.yml
-- include: open_nb_rest_port.yml
-- include: configure_genius_tunnels.yml
+- include_tasks: configure_karaf_features.yml
+- include_tasks: configure_nb_rest_port.yml
+- include_tasks: open_nb_rest_port.yml
+- include_tasks: configure_genius_tunnels.yml
   when: "'odl-netvirt-sfc' in features"
-- include: start_odl.yml
-- include: configure_quagga.yml
+- include_tasks: start_odl.yml
+- include_tasks: configure_quagga.yml
   when:
     - quagga
