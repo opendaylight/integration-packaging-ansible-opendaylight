@@ -69,8 +69,8 @@ odl_version_dict:
 
 # URL of the .repo config to use when installing ODL from a repo
 # NB: This will only take effect when `install_method` is "rpm_repo"
-rpm_repo_url: "{% if odl_version is defined %}https://git.opendaylight.org/gerrit/gitweb?p=integration/packaging.git;a=blob_plain;f=packages/rpm/example_repo_configs/opendaylight-{{ odl_version_dict[odl_version] }}-devel.repo{% else %}https://git.opendaylight.org/gerrit/gitweb?p=integration/packaging.git;a=blob_plain;f=packages/rpm/example_repo_configs/opendaylight-8-devel.repo{% endif %}"
-suse_rpm_repo_url: "{% if odl_version is defined %}https://git.opendaylight.org/gerrit/gitweb?p=integration/packaging.git;a=blob_plain;f=packages/rpm/example_repo_configs/opendaylight-{{ odl_version_dict[odl_version] }}-opensuse-devel.repo{% else %}https://download.opensuse.org/repositories/Virtualization:/NFV/openSUSE_Leap_42.3/{% endif %}"
+rpm_repo_url: "{% if 'latest_release' not in odl_version %}https://git.opendaylight.org/gerrit/gitweb?p=integration/packaging.git;a=blob_plain;f=packages/rpm/example_repo_configs/opendaylight-{{ odl_version_dict[odl_version] }}-devel.repo{% else %}https://git.opendaylight.org/gerrit/gitweb?p=integration/packaging.git;a=blob_plain;f=packages/rpm/example_repo_configs/opendaylight-8-devel.repo{% endif %}"
+suse_rpm_repo_url: "{% if 'latest_release' not in odl_version %}https://git.opendaylight.org/gerrit/gitweb?p=integration/packaging.git;a=blob_plain;f=packages/rpm/example_repo_configs/opendaylight-{{ odl_version_dict[odl_version] }}-opensuse-devel.repo{% else %}https://download.opensuse.org/repositories/Virtualization:/NFV/openSUSE_Leap_42.3/{% endif %}"
 
 # URL of the deb repository to use when installing ODL from a repo
 # NB: This will only take effect when `install_method` is "deb_repo"

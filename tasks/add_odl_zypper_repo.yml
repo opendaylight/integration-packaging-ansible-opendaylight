@@ -10,7 +10,7 @@
        auto_import_keys: yes
        disable_gpg_check: yes
        runrefresh: yes
-  when: odl_version is defined
+  when: "'latest_release' not in odl_version"
 
 - name: Add ODL zypper repo
   zypper_repository:
@@ -18,4 +18,4 @@
     name: opendaylight
     auto_import_keys: yes
     runrefresh: yes
-  when: odl_version is undefined
+  when: "'latest_release' in odl_version"
