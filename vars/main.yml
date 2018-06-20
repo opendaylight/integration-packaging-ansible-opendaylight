@@ -83,7 +83,7 @@ deb_repo_url: "deb http://ppa.launchpad.net/odl-team/oxygen/ubuntu {{ ansible_ls
 # NB: Local paths must be relative the host being configured (think `/vagrant`)
 # NB: This will only take effect when `install_method` is "rpm_path"
 # Default to the release RPM hosted on the CentOS Community Build System
-rpm_path: "http://cbs.centos.org/repos/nfv7-opendaylight-81-release/x86_64/os/Packages/opendaylight-8.1.0-1.el7.noarch.rpm"
+rpm_path: "http://cbs.centos.org/repos/nfv7-opendaylight-82-release/x86_64/os/Packages/opendaylight-8.2.0-1.el7.noarch.rpm"
 # Default to the Nitrogen RPM hosted on the openSUSE OBS
 suse_rpm_path: "https://download.opensuse.org/repositories/Virtualization:/NFV/openSUSE_Leap_42.3/noarch/opendaylight-7.2.0-1.1.noarch.rpm"
 
