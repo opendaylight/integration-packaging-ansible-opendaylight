@@ -63,3 +63,11 @@ default_actions = JSONFormatBear: ApplyPatchAction
 bears = XMLBear
 enabled = False
 files = **.xml
+
+[all.python]
+bears = PEP8Bear,
+    PyUnusedCodeBear,
+    PyImportSortBear
+files = **.py
+default_actions = PyUnusedCodeBear: ApplyPatchAction,
+    PyImportSortBear: ApplyPatchAction
