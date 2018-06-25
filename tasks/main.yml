@@ -9,6 +9,7 @@
 - include_tasks: open_nb_rest_port.yml
 - include_tasks: configure_genius_tunnels.yml
   when: "'odl-netvirt-sfc' in features"
+- include_tasks: configure_odl_user.yml
 - include_tasks: start_odl.yml
 - include_tasks: configure_quagga.yml
   when:

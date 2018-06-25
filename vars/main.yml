@@ -133,3 +133,7 @@ quagga_dependencies:
 
 # Configure OpenDaylight with Quagga
 quagga: false
+
+# Default ODL user credentials
+odl_nb_username: admin
+odl_nb_password: admin
