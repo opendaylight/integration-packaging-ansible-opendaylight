@@ -1,0 +1,51 @@
+---
+
+- hosts: localhost
+  gather_facts: False
+  vars_files:
+    - vars.yaml
+  tasks:
+    - name: list initial users
+      odl_usermod:
+        state: list
+      register: init_state_users
+
+    # By default there should be an 'admin' user here
+    # However no default user in Ansible-ODL
+    # JIRA: INTPAK-193 investigates this issue
+    - name: ensure test user does not exist
+      assert:
+        that:
+          - "'init_state_users == None'"
+
+    - name: create odl user
+      odl_usermod:
+        username: "{{ test_user_username }}"
+        password: "{{ test_user_password }}"
+        state: present
+
+    - name: list users after creation
+      odl_usermod:
+        state: list
+      register: users_after_create
+
+    - name: ensure user creation
+      assert:
+        that:
+          - "'{{ test_user_username }} not None'"
+          - "'{{ test_user_username }} == users_after_create'"
+
+    - name: delete odl user
+      odl_usermod:
+        username: "{{ test_user_username }}"
+        state: absent
+
+    - name: list users after deletion
+      odl_usermod:
+        state: list
+      register: users_after_delete
+
+    - name: ensure user deletion
+      assert:
+        that:
+          - "'users_after_delete == None'"
