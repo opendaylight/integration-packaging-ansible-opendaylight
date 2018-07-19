@@ -72,6 +72,9 @@ def main():
     state = module.params['state']
 
     if state == 'absent':
+        if not username:
+            module.exit_json(changed=False, failed=True,
+                             msg="Username not provided")
         ls_users_cmd = build_cmd(module, "-l")
         (rc, out, err) = module.run_command(ls_users_cmd)
         if username in out:
@@ -83,6 +86,9 @@ def main():
         else:
             module.exit_json(changed=False, msg="No such user exists")
     elif state == 'present':
+        if not username or not password:
+            module.exit_json(changed=False, failed=True,
+                             msg="Username or password not provided")
         ls_users_cmd = build_cmd(module, "-l")
         (rc, out, err) = module.run_command(ls_users_cmd)
         if rc is not None and rc != 0:
