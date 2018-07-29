@@ -49,3 +49,25 @@
       assert:
         that:
           - "'users_after_delete == None'"
+
+    - name: create user without username or password
+      odl_usermod:
+        state: present
+      register: create_without_credentials
+      ignore_errors: yes
+
+    - name: assert user creation failed without passing the credentials
+      assert:
+        that:
+          - "create_without_credentials.msg == 'Username or password not provided'"
+
+    - name: delete odl user without passing username
+      odl_usermod:
+        state: absent
+      register: delete_without_username
+      ignore_errors: yes
+
+    - name: assert user deletion failed without passing username
+      assert:
+        that:
+          - "delete_without_username.msg == 'Username not provided'"
