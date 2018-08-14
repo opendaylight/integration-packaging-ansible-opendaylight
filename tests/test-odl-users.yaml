@@ -10,13 +10,21 @@
         state: list
       register: init_state_users
 
-    # By default there should be an 'admin' user here
-    # However no default user in Ansible-ODL
-    # JIRA: INTPAK-193 investigates this issue
     - name: ensure test user does not exist
       assert:
         that:
-          - "'init_state_users == None'"
+          - "init_state_users != None"
+
+    - name: ensure no test user via API
+      uri:
+        url: "http://localhost:8181/auth/v1/users/{{ test_user_username}}@sdn"
+        url_username: admin
+        url_password: admin
+        status_code: 404
+      register: verify_no_test_user_api
+      until: verify_no_test_user_api.status == 404
+      retries: 5
+      delay: 5
 
     - name: create odl user
       odl_usermod:
@@ -32,8 +40,19 @@
     - name: ensure user creation
       assert:
         that:
-          - "'{{ test_user_username }} not None'"
-          - "'{{ test_user_username }} == users_after_create'"
+          - "test_user_username != None"
+          - "test_user_username in users_after_create.msg"
+
+    - name: ensure test user creation via API
+      uri:
+        url: "http://localhost:8181/auth/v1/users/{{ test_user_username}}@sdn"
+        url_username: admin
+        url_password: admin
+        status_code: 200
+      register: verify_test_user_creation_api
+      until: verify_test_user_creation_api.status == 200
+      retries: 5
+      delay: 5
 
     - name: delete odl user
       odl_usermod:
@@ -48,7 +67,19 @@
     - name: ensure user deletion
       assert:
         that:
-          - "'users_after_delete == None'"
+          - "users_after_delete != None"
+          - "'admin' in users_after_delete.msg"
+
+    - name: ensure test user deletion via API
+      uri:
+        url: "http://localhost:8181/auth/v1/users/{{ test_user_username}}@sdn"
+        url_username: admin
+        url_password: admin
+        status_code: 404
+      register: verify_test_user_deletion_api
+      until: verify_test_user_deletion_api.status == 404
+      retries: 5
+      delay: 5
 
     - name: create user without username or password
       odl_usermod:
