@@ -58,7 +58,7 @@ akka_remoting_port: 2550
 #   rpm_path: Install ODL rpm from a local path or remote URL
 #   dep_repo: Install ODL using a debian repository
 #   deb_path: Install ODL .deb from a local path or remote URL
-install_method: "rpm_repo"
+odl_install_method: "rpm_repo"
 
 # We need this dictionary to translate from ODL version to the version number
 odl_version_dict:
@@ -68,12 +68,12 @@ odl_version_dict:
   nitrogen: 7
 
 # URL of the .repo config to use when installing ODL from a repo
-# NB: This will only take effect when `install_method` is "rpm_repo"
+# NB: This will only take effect when `odl_install_method` is "rpm_repo"
 rpm_repo_url: "{% if 'latest_release' not in odl_version %}https://git.opendaylight.org/gerrit/gitweb?p=integration/packaging.git;a=blob_plain;f=packages/rpm/example_repo_configs/opendaylight-{{ odl_version_dict[odl_version] }}-devel.repo{% else %}https://git.opendaylight.org/gerrit/gitweb?p=integration/packaging.git;a=blob_plain;f=packages/rpm/example_repo_configs/opendaylight-8-release.repo{% endif %}"
 suse_rpm_repo_url: "{% if 'latest_release' not in odl_version %}https://git.opendaylight.org/gerrit/gitweb?p=integration/packaging.git;a=blob_plain;f=packages/rpm/example_repo_configs/opendaylight-{{ odl_version_dict[odl_version] }}-opensuse-devel.repo{% else %}https://download.opensuse.org/repositories/Virtualization:/NFV/openSUSE_Leap_42.3/{% endif %}"
 
 # URL of the deb repository to use when installing ODL from a repo
-# NB: This will only take effect when `install_method` is "deb_repo"
+# NB: This will only take effect when `odl_install_method` is "deb_repo"
 # TODO: When deb snaps are built, point to a repo like rpm
 deb_repo_url: "deb http://ppa.launchpad.net/odl-team/oxygen/ubuntu {{ ansible_lsb.codename }} main"
 
@@ -81,7 +81,7 @@ deb_repo_url: "deb http://ppa.launchpad.net/odl-team/oxygen/ubuntu {{ ansible_ls
 # `name` param docs: "You can also pass a url or a local path to a rpm file."
 #   See: http://docs.ansible.com/ansible/yum_module.html
 # NB: Local paths must be relative the host being configured (think `/vagrant`)
-# NB: This will only take effect when `install_method` is "rpm_path"
+# NB: This will only take effect when `odl_install_method` is "rpm_path"
 # Default to the release RPM hosted on the CentOS Community Build System
 rpm_path: "http://cbs.centos.org/repos/nfv7-opendaylight-82-release/x86_64/os/Packages/opendaylight-8.2.0-1.el7.noarch.rpm"
 # Default to the Nitrogen RPM hosted on the openSUSE OBS
@@ -91,7 +91,7 @@ suse_rpm_path: "https://download.opensuse.org/repositories/Virtualization:/NFV/o
 # `deb` param docs: "Path to a .deb package on the remote machine. If :// in the path,
 #                    ansible will attempt to download deb before installing."
 #   See: http://docs.ansible.com/ansible/apt_module.html
-# This is used when `install_method` is "deb_path"
+# This is used when `odl_install_method` is "deb_path"
 deb_path: ""
 
 # Distro on which quagga packages to be installed

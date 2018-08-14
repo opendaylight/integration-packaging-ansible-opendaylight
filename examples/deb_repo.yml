@@ -5,4 +5,4 @@
     - role: opendaylight
       # Install ODL from a Debian repo. Not including this
       # causes the install to use a repo for the RPM.
-      install_method: "deb_repo"
+      odl_install_method: "deb_repo"

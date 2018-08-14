@@ -59,8 +59,8 @@ The Ansible role will handle opening this port in FirewallD if it's active.
 ### Install Method
 
 OpenDaylight can be installed either via an RPM or a .deb depending on the operating system.
-For RedHat based OSs, the valid options for `install_method` are `rpm_repo` or `rpm_path`.
-For Debian based OSs, `install_method` can accept either `deb_repo` or `deb_path`.
+For RedHat based OSs, the valid options for `odl_install_method` are `rpm_repo` or `rpm_path`.
+For Debian based OSs, `odl_install_method` can accept either `deb_repo` or `deb_path`.
 
 ## Installing OpenDaylight
 
