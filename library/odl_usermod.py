@@ -42,6 +42,12 @@ EXAMPLES = \
     - name: list odl users
       odl_usermod:
         state: list
+
+    - name: change user password
+      odl_usermod:
+        username: admin
+        password: admin
+        state: update
 '''
 
 
@@ -111,6 +117,15 @@ def main():
         if users[0] == 'User names:':
             users.pop(0)
         module.exit_json(changed=False, msg=users)
+    elif state == 'update':
+        if not username or not password:
+            module.exit_json(changed=False, failed=True,
+                             msg="Username or password not provided")
+        cmd = build_cmd(module, "--cu", username, '-p', password)
+        (rc, out, err) = module.run_command(cmd)
+        if rc is not None and rc != 0:
+            return module.fail_json(msg=err)
+        module.exit_json(changed=True, msg="Password changed")
     else:
         module.exit_json(changed=False, msg="No state specified")
 
