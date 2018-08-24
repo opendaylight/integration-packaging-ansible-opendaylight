@@ -1,0 +1,28 @@
+---
+
+- hosts: localhost
+  gather_facts: False
+  vars_files:
+    - vars.yaml
+  tasks:
+    - name: get log levels
+      command: /opt/opendaylight/bin/client log:get
+      register: log_levels
+
+    # These tests assume that the log level has already
+    # been set to DEBUG. This is done by over-riding the
+    # required variable while executing the installation
+    # through Jenkins Job
+    - name: assert ROOT log level set to DEBUG
+      assert:
+        that:
+          - "'ROOT                                │ DEBUG' in log_levels.stdout"
+
+    - name: save the logs
+      command: /opt/opendaylight/bin/client 'log:display -n 10'
+      register: odl_logs
+
+    - name: assert log level is DEBUG
+      assert:
+        that:
+          - "'DEBUG' in odl_logs.stdout"

@@ -123,6 +123,16 @@ odl_bgp_speaker_host_ip_address: "{{ hostvars[inventory_hostname]['ansible_defau
 # thrift connection.
 bgp_config_server_port: 7644
 
+# Configure Log settings
+log_levels:
+  root:
+    log_name:
+    log_level:
+
+log_max_size: '10GB'
+log_max_rollover: 2
+log_mechanism: file
+
 # Quagga packages to be installed
 quagga_dependencies:
   - thrift
