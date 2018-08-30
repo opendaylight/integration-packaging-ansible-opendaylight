@@ -102,3 +102,58 @@
       assert:
         that:
           - "delete_without_username.msg == 'Username not provided'"
+
+    - name: assert that API responds with default admin password
+      uri:
+        url: http://localhost:8181/auth/v1/users
+        url_username: admin
+        url_password: admin
+        status_code: 200
+      register: api_responsive_default_password
+      until: api_responsive_default_password.status == 200
+      retries: 5
+      delay: 5
+
+    - name: assert that API fails with new password before changing
+      uri:
+        url: http://localhost:8181/auth/v1/users
+        url_username: admin
+        url_password: temp
+        status_code: 401
+      register: api_failure_before_pass_change
+      until: api_failure_before_pass_change.status == 401
+      retries: 5
+      delay: 5
+
+    - name: update admin password
+      odl_usermod:
+        username: admin
+        password: temp
+        state: update
+
+    - name: restart odl service
+      service:
+        name: opendaylight
+        state: restarted
+
+    - name: assert API fails with old password
+      uri:
+        url: http://localhost:8181/auth/v1/users/
+        url_username: admin
+        url_password: admin
+        status_code: 401
+      register: old_admin_password_failure
+      until: old_admin_password_failure.status == 401
+      retries: 10
+      delay: 10
+
+    - name: assert API responds with new password
+      uri:
+        url: http://localhost:8181/auth/v1/users/
+        url_username: admin
+        url_password: temp
+        status_code: 200
+      register: new_admin_password_success
+      until: new_admin_password_success.status == 200
+      retries: 5
+      delay: 5
