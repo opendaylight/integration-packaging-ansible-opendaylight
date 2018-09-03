@@ -6,6 +6,7 @@
     regexp: "^log4j2.{{ item.value.log_name }}.level.*s"
     line: "log4j2.{{ item.value.log_name }}.level = {{ item.value.log_level }}"
   with_dict: "{{ log_levels }}"
+  when: "item.value.log_name != None"
 
 - name: configure console logging
   block:
