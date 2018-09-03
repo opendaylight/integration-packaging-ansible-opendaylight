@@ -5,6 +5,17 @@
   vars_files:
     - vars.yaml
   tasks:
+    - name: wait until the api becomes responsive
+      uri:
+        url: http://localhost:8181/auth/v1/users/
+        url_username: admin
+        url_password: admin
+        status_code: 200
+      register: intial_api_response
+      until: intial_api_response.status == 200
+      retries: 20
+      delay: 20
+
     - name: list initial users
       odl_usermod:
         state: list
@@ -23,8 +34,8 @@
         status_code: 404
       register: verify_no_test_user_api
       until: verify_no_test_user_api.status == 404
-      retries: 5
-      delay: 5
+      retries: 20
+      delay: 20
 
     - name: create odl user
       odl_usermod:
@@ -51,8 +62,8 @@
         status_code: 200
       register: verify_test_user_creation_api
       until: verify_test_user_creation_api.status == 200
-      retries: 5
-      delay: 5
+      retries: 20
+      delay: 20
 
     - name: delete odl user
       odl_usermod:
@@ -78,8 +89,8 @@
         status_code: 404
       register: verify_test_user_deletion_api
       until: verify_test_user_deletion_api.status == 404
-      retries: 5
-      delay: 5
+      retries: 20
+      delay: 20
 
     - name: create user without username or password
       odl_usermod:
@@ -111,8 +122,8 @@
         status_code: 200
       register: api_responsive_default_password
       until: api_responsive_default_password.status == 200
-      retries: 5
-      delay: 5
+      retries: 20
+      delay: 20
 
     - name: assert that API fails with new password before changing
       uri:
@@ -122,8 +133,8 @@
         status_code: 401
       register: api_failure_before_pass_change
       until: api_failure_before_pass_change.status == 401
-      retries: 5
-      delay: 5
+      retries: 20
+      delay: 20
 
     - name: update admin password
       odl_usermod:
@@ -144,8 +155,8 @@
         status_code: 401
       register: old_admin_password_failure
       until: old_admin_password_failure.status == 401
-      retries: 10
-      delay: 10
+      retries: 20
+      delay: 20
 
     - name: assert API responds with new password
       uri:
@@ -155,5 +166,5 @@
         status_code: 200
       register: new_admin_password_success
       until: new_admin_password_success.status == 200
-      retries: 5
-      delay: 5
+      retries: 20
+      delay: 20
