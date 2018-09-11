@@ -75,7 +75,7 @@ suse_rpm_repo_url: "{% if 'latest_release' not in odl_version %}https://git.open
 # URL of the deb repository to use when installing ODL from a repo
 # NB: This will only take effect when `odl_install_method` is "deb_repo"
 # TODO: When deb snaps are built, point to a repo like rpm
-deb_repo_url: "deb http://ppa.launchpad.net/odl-team/oxygen/ubuntu {{ ansible_lsb.codename }} main"
+deb_repo_url: "deb http://ppa.launchpad.net/odl-team/fluorine/ubuntu {{ ansible_lsb.codename }} main"
 
 # This will be passed as the `name` param to the Ansible `yum` module.
 # `name` param docs: "You can also pass a url or a local path to a rpm file."
