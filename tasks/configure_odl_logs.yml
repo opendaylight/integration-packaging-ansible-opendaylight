@@ -42,5 +42,5 @@
       lineinfile:
         path: /opt/opendaylight/etc/org.ops4j.pax.logging.cfg
         line: "log4j2.appender.rolling.strategy.max = {{ log_max_rollover }}"
-        regexp: "^log4j2.appender.rolling.s"
+        regexp: "^log4j2.appender.rolling.strategy.max"
   when: "log_mechanism == 'file'"
