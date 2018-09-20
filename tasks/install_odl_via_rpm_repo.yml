@@ -8,4 +8,4 @@
 - name: Install ODL via RPM repo
   package:
     name=opendaylight
-    state=present
+    state=latest
