@@ -62,14 +62,15 @@ odl_install_method: "rpm_repo"
 
 # We need this dictionary to translate from ODL version to the version number
 odl_version_dict:
-  master: 9
+  master: 10
+  neon: 10
   fluorine: 9
   oxygen: 8
   nitrogen: 7
 
 # URL of the .repo config to use when installing ODL from a repo
 # NB: This will only take effect when `odl_install_method` is "rpm_repo"
-rpm_repo_url: "{% if 'latest_release' not in odl_version %}https://git.opendaylight.org/gerrit/gitweb?p=integration/packaging.git;a=blob_plain;f=packages/rpm/example_repo_configs/opendaylight-{{ odl_version_dict[odl_version] }}-devel.repo{% else %}https://git.opendaylight.org/gerrit/gitweb?p=integration/packaging.git;a=blob_plain;f=packages/rpm/example_repo_configs/opendaylight-8-release.repo{% endif %}"
+rpm_repo_url: "{% if 'latest_release' not in odl_version %}https://git.opendaylight.org/gerrit/gitweb?p=integration/packaging.git;a=blob_plain;f=packages/rpm/example_repo_configs/opendaylight-{{ odl_version_dict[odl_version] }}-devel.repo{% else %}https://git.opendaylight.org/gerrit/gitweb?p=integration/packaging.git;a=blob_plain;f=packages/rpm/example_repo_configs/opendaylight-9-release.repo{% endif %}"
 suse_rpm_repo_url: "{% if 'latest_release' not in odl_version %}https://git.opendaylight.org/gerrit/gitweb?p=integration/packaging.git;a=blob_plain;f=packages/rpm/example_repo_configs/opendaylight-{{ odl_version_dict[odl_version] }}-opensuse-devel.repo{% else %}https://download.opensuse.org/repositories/Virtualization:/NFV/openSUSE_Leap_42.3/{% endif %}"
 
 # URL of the deb repository to use when installing ODL from a repo
@@ -83,7 +84,7 @@ deb_repo_url: "deb http://ppa.launchpad.net/odl-team/fluorine/ubuntu {{ ansible_
 # NB: Local paths must be relative the host being configured (think `/vagrant`)
 # NB: This will only take effect when `odl_install_method` is "rpm_path"
 # Default to the release RPM hosted on the CentOS Community Build System
-rpm_path: "http://cbs.centos.org/repos/nfv7-opendaylight-82-release/x86_64/os/Packages/opendaylight-8.2.0-1.el7.noarch.rpm"
+rpm_path: "http://cbs.centos.org/repos/nfv7-opendaylight-9-release/x86_64/os/Packages/opendaylight-9.0.0-2.el7.noarch.rpm"
 # Default to the Nitrogen RPM hosted on the openSUSE OBS
 suse_rpm_path: "https://download.opensuse.org/repositories/Virtualization:/NFV/openSUSE_Leap_42.3/noarch/opendaylight-7.2.0-1.1.noarch.rpm"
 
