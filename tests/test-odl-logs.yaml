@@ -13,16 +13,19 @@
     # been set to DEBUG. This is done by over-riding the
     # required variable while executing the installation
     # through Jenkins Job
-    - name: assert ROOT log level set to DEBUG
+    - name: assert ROOT log level set as per requirements
       assert:
         that:
-          - "'ROOT                                │ DEBUG' in log_levels.stdout"
+          - "'ROOT                                │ {{ test_log_level }}'  in log_levels.stdout"
 
-    - name: save the logs
-      command: /opt/opendaylight/bin/client 'log:display -n 10'
-      register: odl_logs
+    - name: assert console logging
+      block:
+      - name: save console logs
+        command: /opt/opendaylight/bin/client 'log:display -n 10'
+        register: odl_logs
 
-    - name: assert log level is DEBUG
-      assert:
-        that:
-          - "'DEBUG' in odl_logs.stdout"
+      - name: assert log level in log details
+        assert:
+          that:
+            - "'{{test_log_level }}' in odl_logs.stdout"
+      when: test_log_mechanism == 'console'
