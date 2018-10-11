@@ -29,3 +29,9 @@
           that:
             - "'{{test_log_level }}' in odl_logs.stdout"
       when: test_log_mechanism == 'console'
+
+    - name: verify file logging
+      assert:
+        that:
+          - "lookup('file', '/opt/opendaylight/data/log/karaf.log') != None"
+      when: test_log_mechanism == 'file'
