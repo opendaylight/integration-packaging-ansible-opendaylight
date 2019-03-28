@@ -5,7 +5,7 @@
   become: True
   roles:
     - role: opendaylight
-      rpm_repo_url: "https://git.opendaylight.org/gerrit/gitweb?p=integration/packaging.git;a=blob_plain;f=packages/rpm/example_repo_configs/opendaylight-8-devel.repo"
+      rpm_repo_url: "https://git.opendaylight.org/gerrit/gitweb?p=integration/packaging.git;a=blob_plain;f=packages/rpm/example_repo_configs/opendaylight-8-release.repo"
 
   post_tasks:
     - name: get ODL version info
@@ -22,7 +22,7 @@
   become: True
   roles:
     - role: opendaylight
-      rpm_repo_url: "https://git.opendaylight.org/gerrit/gitweb?p=integration/packaging.git;a=blob_plain;f=packages/rpm/example_repo_configs/opendaylight-9-devel.repo"
+      rpm_repo_url: "https://git.opendaylight.org/gerrit/gitweb?p=integration/packaging.git;a=blob_plain;f=packages/rpm/example_repo_configs/opendaylight-9-release.repo"
 
   post_tasks:
     - name: get ODL version info
